@@ -1,54 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Roupas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paixão Corinthiana - Loja Oficial</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #000;
+    }
+
+    header {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    #produtos {
+      flex: 3;
+      max-width: 1000px;
+    }
+
+    #produtos h3 {
+      text-align: center;
+      color: #b71c1c;
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .produto {
+      background-color: white;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .produto img {
+      width: 250px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .produto h4 {
+      margin: 10px 0;
+      color: #000;
+    }
+
+    .produto p {
+      font-size: 16px;
+      margin: 5px 0 15px;
+    }
+
+    .add-carrinho {
+      background-color: #b71c1c;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .add-carrinho:hover {
+      background-color: #d32f2f;
+    }
+
+    aside#carrinho {
+      flex: 1;
+      background-color: white;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 300px;
+      height: fit-content;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #carrinho h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #finalizar-compra {
+      background-color: #000;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #finalizar-compra:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Paixão Corinthiana</h1>
-            <h2>Bem-vindo à nossa loja!</h2>
-            <p>Explore nossas categorias de roupas e encontre o que você precisa.</p>   
-    </header>
-        <main>
-           <section id="produtos">
-            <h3>Nossas Roupas</h3>
 
-            <div class="produto"></div>
-                <img src="https://acdn-us.mitiendanube.com/stores/004/285/036/products/camisa-i-titular-corinthians-2025-26-torcedor-masculina-1-f4598f47e2b9d44d1517457204742204-1024-1024.jpg" alt="Camisa Corinthians">
-                <h4>Camisa Corinthians 2025</h4>
-                <p>Preço: R$ 399,99</p>
-                <button> class="add-carrinho" <data-nome="Camisa Corinthians" data-preco="399.99" data-cor="Preto e Branco">Adicionar ao Carrinho</button>
-                </div>
+  <header>
+    <h1>Paixão Corinthiana</h1>
+    <h2>Bem-vindo à nossa loja!</h2>
+    <p>Explore nossas categorias de roupas e encontre o que você precisa.</p>
+  </header>
 
-                
+  <main>
+    <section id="produtos">
+      <h3>Nossas Roupas</h3>
 
-            <div class="produto"></div>
-                <img src="https://imgnike-a.akamaihd.net/1300x1300/025903IDA5.jpg" alt="Calça Corinthians">
-                <h4>Calça Corinthians 2025</h4>
-                <p>Preço: R$ 299,99</p>
-                <button> class="add-carrinho" <data-nome="Calça Corinthians" data-preco="299.99" data-cor="Preto">Adicionar ao Carrinho</button>
-                </div>
+      <div class="produto">
+        <img src="https://acdn-us.mitiendanube.com/stores/004/285/036/products/camisa-i-titular-corinthians-2025-26-torcedor-masculina-1-f4598f47e2b9d44d1517457204742204-1024-1024.jpg" alt="Camisa Corinthians">
+        <h4>Camisa Corinthians 2025</h4>
+        <p>Preço: R$ 399,99</p>
+        <button class="add-carrinho" data-nome="Camisa Corinthians" data-preco="399.99" data-cor="Preto e Branco">Adicionar ao Carrinho</button>
+      </div>
 
+      <div class="produto">
+        <img src="https://imgnike-a.akamaihd.net/1300x1300/025903IDA5.jpg" alt="Calça Corinthians">
+        <h4>Calça Corinthians 2025</h4>
+        <p>Preço: R$ 299,99</p>
+        <button class="add-carrinho" data-nome="Calça Corinthians" data-preco="299.99" data-cor="Preto">Adicionar ao Carrinho</button>
+      </div>
 
-            <div class="produto"></div>
-              <img src="https://images.tcdn.com.br/img/img_prod/311840/tenis_corinthians_gorge_black_76960_3_20201130180720.jpg" alt="Tênis Corinthians">
-                <h4>Tênis Corinthians 2025</h4>
-                <p>Preço: R$ 199,99</p>
-                <button> class="add-carrinho" <data-nome="Tênis Corinthians" data-preco="199.99" data-cor="Preto">Adicionar ao Carrinho</button>
-                </div>
-           </section>
+      <div class="produto">
+        <img src="https://images.tcdn.com.br/img/img_prod/311840/tenis_corinthians_gorge_black_76960_3_20201130180720.jpg" alt="Tênis Corinthians">
+        <h4>Tênis Corinthians 2025</h4>
+        <p>Preço: R$ 199,99</p>
+        <button class="add-carrinho" data-nome="Tênis Corinthians" data-preco="199.99" data-cor="Preto">Adicionar ao Carrinho</button>
+      </div>
+    </section>
 
-           <aside id="carrinho">
-            <h3>Carrinho de Compras</h3>
-            <ul id="itens-carrinho"></ul>
-            <p id="total">Total: R$ 0,00</p>
-            <button id="finalizar-compra">Finalizar Compra</button>
-           
-        </main>
-            <script src="script.js"></script>
+    <aside id="carrinho">
+      <h3>Carrinho de Compras</h3>
+      <ul id="itens-carrinho"></ul>
+      <p id="total">Total: R$ 0,00</p>
+      <button id="finalizar-compra">Finalizar Compra</button>
+    </aside>
+  </main>
 
+  <script src="script.js"></script>
 </body>
 </html>
