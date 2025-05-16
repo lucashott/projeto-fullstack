@@ -1,6 +1,6 @@
-from nginx:latest
-copy. usr/share/nginx/html
+FROM nginx:latest
+COPY . /usr/share/nginx/html
 
-expose 80
+EXPOSE 80
 
-cmd ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
