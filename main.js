@@ -13,14 +13,36 @@ const atualizarCarrinho = () => {
   itensCarrinho.innerHTML = '';
   totalPreco = 0;
 
-  carrinho.forEach((item) => {
+  carrinho.forEach((item, index) => {
     const li = document.createElement('li');
-    li.textContent = `${item.nome} (x${item.quantidade}) - ${formatarPreco(item.preco * item.quantidade)}`;
+
+    li.innerHTML = `
+      ${item.nome} (x${item.quantidade}) - ${formatarPreco(item.preco * item.quantidade)}
+      <button class="remover-item" data-index="${index}">Remover</button>
+    `;
+
     itensCarrinho.appendChild(li);
     totalPreco += item.preco * item.quantidade;
   });
 
   totalCarrinho.textContent = `Total: ${formatarPreco(totalPreco)}`;
+
+  // Ativar os botões de remover
+  const botoesRemover = document.querySelectorAll('.remover-item');
+  botoesRemover.forEach((botao) => {
+    botao.addEventListener('click', () => {
+      const index = parseInt(botao.getAttribute('data-index'));
+
+      // Reduz quantidade ou remove completamente
+      if (carrinho[index].quantidade > 1) {
+        carrinho[index].quantidade -= 1;
+      } else {
+        carrinho.splice(index, 1);
+      }
+
+      atualizarCarrinho();
+    });
+  });
 };
 
 botoes.forEach((botao) => {
@@ -28,7 +50,6 @@ botoes.forEach((botao) => {
     const nome = botao.getAttribute('data-nome');
     const preco = parseFloat(botao.getAttribute('data-preco'));
 
-    // Verifica se item já existe no carrinho
     const itemExistente = carrinho.find((item) => item.nome === nome);
 
     if (itemExistente) {
@@ -38,8 +59,5 @@ botoes.forEach((botao) => {
     }
 
     atualizarCarrinho();
-
-    // Alerta leve visual (opcional)
-    alert(`${nome} adicionado ao carrinho.`);
   });
 });
